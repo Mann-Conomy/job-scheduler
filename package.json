@@ -1,0 +1,32 @@
+{
+  "name": "@mann-conomy/job-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@eslint/js": "^9.28.0",
+    "@jest/globals": "^30.0.0-beta.3",
+    "@mann-conomy/tsconfig": "^1.1.0",
+    "@mann-conomy/typescript-eslint-config": "^1.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.29",
+    "cron": "^4.3.1",
+    "eslint": "^8.57.1",
+    "raf": "^3.4.1",
+    "rim": "^0.0.0",
+    "ts-jest": "^29.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.0"
+  }
+}
