@@ -1,11 +1,11 @@
 import { CronJob } from "cron";
 import EventEmitter from "events";
 import { JobEvent } from "../resources/enums";
-import { validateCronTime } from "../lib/utils";
+import { validateCronOptions, validateCronTime, validateTimeZone } from "../lib/utils";
 import type { JobExpression, JobOptions, JobResolver, ScheduledJob } from "../types/job";
 
 /**
- * A scheduler class that manages cron-based background jobs.
+ * A simple scheduler class that manages cron-based background jobs.
  */
 export default class JobScheduler extends EventEmitter {
     private readonly timeZone: string;
@@ -18,6 +18,11 @@ export default class JobScheduler extends EventEmitter {
     public constructor(timeZone: string) {
         super();
 
+        const result = validateTimeZone(timeZone);
+        if (!result.valid && result.error) {
+            throw new TypeError("Invalid format or value for the specified time zone.");
+        }
+        
         this.timeZone = timeZone;
     }
 
@@ -30,30 +35,30 @@ export default class JobScheduler extends EventEmitter {
      */
     public schedule<T>(id: string, expression: JobExpression, resolver: JobResolver<T>, options: Partial<JobOptions> = {}): void {
         const cronTime = validateCronTime(expression);
+        const cronOptions = validateCronOptions(this.timeZone, options);
 
         const job = CronJob.from({
             cronTime,
             onTick: async () => {
                 this.emit(JobEvent.Started, id);
 
-                const result = await resolver();
-                this.emit(JobEvent.Completed, id, result);
+                try {
+                    const result = await resolver();
+                    this.emit(JobEvent.Completed, id, result);
+                } catch (error) {
+                    this.emit(JobEvent.Error, id, error);
+                }
             },
             onComplete: () => {
                 this.emit(JobEvent.Stopped, id);
             },
-            errorHandler: (error: unknown) => {
-                if (error instanceof Error) {
-                    this.emit(JobEvent.Error, id, error);
-                }
-            },
-            ...options,
+            ...cronOptions,
         });
 
         this.jobs.set(id, job);
         this.emit(JobEvent.Created, id);
 
-        if (options.start) {
+        if (cronOptions.start) {
             job.start();
         }
     }
