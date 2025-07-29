@@ -13,7 +13,7 @@ Please provide a clear and concise description of the bug. Include any relevant 
 
 Please provide detailed steps for reproducing the issue.
 1. Import class '...'
-2. Call toKeys '....'
+2. Call schedule '....'
 3. Run '....'
 4. Throws error
 

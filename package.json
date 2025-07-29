@@ -1,7 +1,7 @@
 {
   "name": "@mann-conomy/job-scheduler",
   "version": "1.0.0",
-  "description": "A simple background task scheduler for the Mann-Conomy project.",
+  "description": "A simple background job scheduler for the Mann-Conomy project.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -20,7 +20,16 @@
     "type": "git",
     "url": "git+https://github.com/Mann-Conomy/job-scheduler.git"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "cron",
+    "manager",
+    "scheduler",
+    "timezone",
+    "jobs",
+    "event",
+    "mann-conomy"
+  ],
   "author": "The Mann-Conomy Team",
   "license": "MIT",
   "bugs": {
@@ -46,7 +55,7 @@
     "typescript-eslint": "^8.38.0"
   },
   "engines": {
-    "node": ">=8.17.0"
+    "node": ">=18.x"
   },
   "directories": {
     "example": "examples",

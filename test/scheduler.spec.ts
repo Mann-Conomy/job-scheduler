@@ -202,7 +202,7 @@ describe("JobScheduler", () => {
 
 /**
  * Creates a Jest mock function with a resolved value from a Promise.
- * @returns A Jest mock function.
+ * @returns A Jest mock async function.
  */
 function getMockJob() {
     return jest.fn().mockResolvedValue("done");
@@ -210,7 +210,7 @@ function getMockJob() {
 
 /**
  * Creates a Jest mock function that throws an error.
- * @returns A Jest mock function.
+ * @returns A Jest mock error function.
  */
 function getJobThatThrows() {
     return jest.fn().mockImplementation(() => {

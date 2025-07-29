@@ -19,7 +19,7 @@ Provide a detailed description of the proposed feature or improvement. If applic
 
 ## Example Usage
 
-If applicable, provide an example of how the new feature or improvement would be configured in the Currency or Calculator class.
+If applicable, provide an example of how the new feature or improvement would be configured in the JobScheduler class.
 
 ```js
 export default class JobScheduler extends EventEmitter {

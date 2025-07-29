@@ -29,8 +29,7 @@ function handleJobStopped(id: string) {
 
 // Handle the JobCompleted event
 async function handleJobCompleted(id: string, result: { id: number, userId: number }[]) {
-    console.log(result);
-    //>console.log(`Job ${id} completed with ${result.length} results`);
+    console.log(`Job ${id} completed with ${result.length} results`);
 
     // Stop the job the first time it completes
     await scheduler.stop(id);

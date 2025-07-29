@@ -1,6 +1,6 @@
 # job-scheduler
 
-A simple background task scheduler for the Mann-Conomy project.
+A simple background job scheduler for the Mann-Conomy project.
 
 [![npm version](https://img.shields.io/npm/v/@mann-conomy/job-scheduler?style=flat-square&logo=npm)](https://npmjs.com/package/@mann-conomy/job-scheduler)
 [![npm downloads](https://img.shields.io/npm/d18m/@mann-conomy/job-scheduler?style=flat-square&logo=npm)](https://npmjs.com/package/@mann-conomy/job-scheduler)

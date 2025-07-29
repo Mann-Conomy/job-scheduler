@@ -14,7 +14,7 @@ export enum JobEvent {
     Started = "scheduledJobStarted",
     /**
      * Emitted when a job stops (manually or on complete).
-     * Listener arguments: (jobId: string)
+     * Listener arguments: (id: string)
      */
     Stopped = "scheduledJobStpped",
     /**
@@ -24,7 +24,7 @@ export enum JobEvent {
     Created = "scheduledJobCreated",
     /**
      * Emitted when a job completes execution successfully.
-     * Listener arguments: (id: string, result: unknown)
+     * Listener arguments: (id: string, result: T)
      */
     Completed = "jobCompleted",
 }
